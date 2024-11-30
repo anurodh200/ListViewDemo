@@ -1,5 +1,6 @@
 package com.example.listview
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
@@ -42,9 +43,15 @@ class MainActivity : AppCompatActivity() {
 
         listView.setOnItemClickListener { adapterView, view, i, l ->
             val name = name[i]
-            val image = imageId[i]
-            val time = lastMsgT[i]
-            Toast.makeText(this, "Clicked on $name having messaged at $time", Toast.LENGTH_SHORT).show()
+            val phone = phoneNo[i]
+            val imgID = imageId[i]
+
+            intent = Intent(this, userActivity::class.java)
+            intent.putExtra("name", name)
+            intent.putExtra("phone", phone)
+            intent.putExtra("imgID", imgID)
+            startActivity(intent)
+            Toast.makeText(this, "$name having messaged", Toast.LENGTH_SHORT).show()
         }
 
 
