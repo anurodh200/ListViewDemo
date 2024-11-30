@@ -40,6 +40,13 @@ class MainActivity : AppCompatActivity() {
         listView.isClickable = true
         listView.adapter = MyAdapter(this, userArrayList)
 
+        listView.setOnItemClickListener { adapterView, view, i, l ->
+            val name = name[i]
+            val image = imageId[i]
+            val time = lastMsgT[i]
+            Toast.makeText(this, "Clicked on $name having messaged at $time", Toast.LENGTH_SHORT).show()
+        }
+
 
 //        val listView = findViewById<ListView>(R.id.listView)
 //
